@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kkevi_market.databinding.MainListRecylcerViewBinding
 
-class MainAdaptor(private val mItems: MutableList<MainListViewItemData>) :
+class MainAdaptor(private val mItems: List<MainListViewItemData>) :
     RecyclerView.Adapter<MainAdaptor.Holder>() {
     interface ItemClick {
         fun onClick(view: View, position: Int)

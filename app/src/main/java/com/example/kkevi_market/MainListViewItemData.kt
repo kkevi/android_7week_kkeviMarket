@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 @Parcelize
 data class MainListViewItemData (
-    val id: Int = 0,
+    val id: Long = 0L,
     val user: User,
     val imageSrc: Int,
     val title: String,

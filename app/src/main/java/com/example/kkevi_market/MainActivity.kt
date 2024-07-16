@@ -1,6 +1,7 @@
 package com.example.kkevi_market
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val fakeData = FakeData.data
-        val adapter = MainAdaptor(fakeData)
+        val fakeData = FakeData.getFakeData()
+        val fakeDataList = fakeData.getFakeDataList()
+
+
+        val adapter = MainAdaptor(fakeDataList)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 

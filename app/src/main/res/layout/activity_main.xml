@@ -14,7 +14,8 @@
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/tv_village"
@@ -52,6 +53,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="@+id/app_bar"/>
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
