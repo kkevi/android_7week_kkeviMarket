@@ -1,13 +1,10 @@
 package com.example.kkevi_market
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kkevi_market.databinding.ActivityMainBinding
@@ -20,23 +17,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val fakeData = FakeData.getFakeData()
+        val fakeDataInstance = FakeData.getFakeData()
+        val fakeDataList = fakeDataInstance.getFakeDataList()
 
-//        val adapter = MainAdaptor(fakeData.getFakeDataList())
+        val mainAdapter = MainAdaptor(fakeDataList)
         binding.recyclerView.apply{
             layoutManager = LinearLayoutManager(context)
-            adapter = MainAdaptor(fakeData.getFakeDataList())
+            adapter = mainAdapter
             addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
         }
-//        binding.recyclerView.adapter = adapter
-//        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-//        val decoration = DividerItemDecoration(this, )
-//        recyclerView.addItemDecoration(decoration)
 
-//        adapter.itemClick = object : MainAdaptor.ItemClick {
-//            override fun onClick(view: View, position: Int) {
-//
-//            }
-//        }
+        mainAdapter.itemClick = object : MainAdaptor.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                val intentDetail = Intent(this@MainActivity, DetailActivity::class.java)
+                intentDetail.putExtra("user", fakeDataList[position])
+                startActivity(intentDetail)
+            }
+        }
     }
 }
