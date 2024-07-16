@@ -6,12 +6,12 @@ import android.util.Log
 class FakeData{
     // Singleton 생성 (쓰레드 세이프형?)
     companion object {
-        private var INSTANCE: FakeData? = null
+        private var instance: FakeData? = null
+
         fun getFakeData(): FakeData {
-            Log.d("getfakeData", "working in here!")
             return synchronized(FakeData::class){
-                val newInstance = INSTANCE ?: FakeData()
-                INSTANCE = newInstance
+                val newInstance = instance ?: FakeData()
+                instance = newInstance
                 newInstance
             }
         }
@@ -21,11 +21,11 @@ class FakeData{
         return fakeDataList()
     }
 
-    fun getFakeDataForId(id: Long): MainListViewItemData {
-        fakeDataList().let { data ->
-            return data.first{ it.id == id}
-        }
-    }
+//    fun getFakeDataForId(id: Long): MainListViewItemData {
+//        fakeDataList().let { data ->
+//            return data.first{ it.id == id}
+//        }
+//    }
 
     fun fakeDataList(): List<MainListViewItemData> {
         return listOf(
