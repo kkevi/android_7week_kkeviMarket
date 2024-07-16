@@ -17,13 +17,13 @@ class MainActivity : AppCompatActivity() {
 
         val dataList = mutableListOf<MainListViewItemData>()
 
-        dataList.add(MainListViewItemData(123, "Bella", "1", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Charlie", "2", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Daisy", "1.5", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Duke", "1", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Max", "2", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Happy", "4", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Luna", "3", 123, 1, 3))
-        dataList.add(MainListViewItemData(123, "Bob", "2", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Bella", "1", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Charlie", "2", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Daisy", "1.5", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Duke", "1", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Max", "2", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Happy", "4", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Luna", "3", 123, 1, 3))
+//        dataList.add(MainListViewItemData(123, "Bob", "2", 123, 1, 3))
     }
 }

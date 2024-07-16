@@ -1,11 +1,20 @@
 package com.example.kkevi_market
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import java.time.LocalDateTime
 
+@Parcelize
 data class MainListViewItemData (
+    val id: Int = 0,
+    val user: User,
     val imageSrc: Int,
-    val name: String,
-    val location: String,
+    val title: String,
+    val contents: String,
     val price: Int,
-    val chats: Int,
-    val likes: Int,
-){}
+    val likes: Int = 0,
+    val comments: Int = 0,
+    val createdDate: LocalDateTime = LocalDateTime.now(),
+) : Parcelable {
+
+}

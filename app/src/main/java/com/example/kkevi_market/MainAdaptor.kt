@@ -14,17 +14,34 @@ class MainAdaptor(val mItems: MutableList<MainListViewItemData>) :
     }
 
     override fun onBindViewHolder(holder: MainAdaptor.Holder, position: Int) {
-        TODO("Not yet implemented")
+        holder.itemView.setOnClickListener {  //클릭이벤트추가부분
+//            itemClick?.onClick(it, position)
+        }
+        holder.image.setImageResource(mItems[position].imageSrc)
+        holder.title.text = mItems[position].title
+        holder.location.text = mItems[position].user.location
+        holder.price.text = mItems[position].price.toString()
+        holder.comments.text = mItems[position].comments.toString()
+        holder.likes.text = mItems[position].likes.toString()
+    }
+
+    // 아래 2개는 꼭 override 해줘야 함
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        // 리스트 총개수 반환
+        return mItems.size
     }
 
-    inner class Holder(val binding: MainListRecylcerViewBinding) :
+    inner class Holder(private val binding: MainListRecylcerViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-//        val iconImageView = binding.iconItem //이미지 생략
-//        val name = binding.textItem1
-//        val age = binding.textItem2
+        val image = binding.ivItem
+        val title = binding.tvTitle
+        val location = binding.tvLocation
+        val price = binding.tvPrice
+        val comments = binding.tvComments
+        val likes = binding.tvLike
     }
 }
