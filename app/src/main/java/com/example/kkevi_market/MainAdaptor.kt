@@ -1,12 +1,19 @@
 package com.example.kkevi_market
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kkevi_market.databinding.MainListRecylcerViewBinding
 
-class MainAdaptor(val mItems: MutableList<MainListViewItemData>) :
+class MainAdaptor(private val mItems: MutableList<MainListViewItemData>) :
     RecyclerView.Adapter<MainAdaptor.Holder>() {
+    interface ItemClick {
+        fun onClick(view: View, position: Int)
+    }
+
+    var itemClick: ItemClick? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdaptor.Holder {
         val binding =
             MainListRecylcerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -14,8 +21,8 @@ class MainAdaptor(val mItems: MutableList<MainListViewItemData>) :
     }
 
     override fun onBindViewHolder(holder: MainAdaptor.Holder, position: Int) {
-        holder.itemView.setOnClickListener {  //클릭이벤트추가부분
-//            itemClick?.onClick(it, position)
+        holder.itemView.setOnClickListener {
+            itemClick?.onClick(it, position)
         }
         holder.image.setImageResource(mItems[position].imageSrc)
         holder.title.text = mItems[position].title
