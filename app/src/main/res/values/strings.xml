@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">깨비마켓</string>
     <string name="village">내배캠동</string>
+
+    <string name="temperature"><u>매너온도</u></string>
+    <string name="chatting">채팅하기</string>
 </resources>
