@@ -1,20 +1,31 @@
 package com.example.kkevi_market
 
+import android.icu.text.DecimalFormat
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.kkevi_market.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_detail)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContentView(binding.root)
+        val dec = DecimalFormat("#,###원")
+
+        val data = intent.getParcelableExtra<MainListViewItemData>("data")
+
+        binding.apply{
+            data?.imageSrc?.let { detailIvImage.setImageResource(it) }
+            detailTvName.text = data?.user?.name
+            detailTvLocation.text = data?.user?.location
+            detailTvTemperature.text = data?.user?.temperature.toString()
+            detailTvTitle.text = data?.title
+            detailTvContents.text = data?.contents
+            detailTvPrice.text = dec.format(data?.price)
         }
+
+        binding.ivBack.setOnClickListener { finish() }
     }
 }

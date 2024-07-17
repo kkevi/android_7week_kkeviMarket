@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         mainAdapter.itemClick = object : MainAdaptor.ItemClick {
             override fun onClick(view: View, position: Int) {
                 val intentDetail = Intent(this@MainActivity, DetailActivity::class.java)
-                intentDetail.putExtra("user", fakeDataList[position])
+                intentDetail.putExtra("data", fakeDataList[position])
                 startActivity(intentDetail)
             }
         }

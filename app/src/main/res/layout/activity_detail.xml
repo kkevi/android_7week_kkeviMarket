@@ -5,12 +5,28 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,8 +47,7 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
+                android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detail_iv_image">
@@ -150,7 +165,6 @@
         </LinearLayout>
     </ScrollView>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_constraintLayout"
         android:layout_width="match_parent"
@@ -201,17 +215,17 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/chatting"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_radius16_button"
+            android:backgroundTint="@color/grey60"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:paddingVertical="4dp"
             android:paddingHorizontal="20dp"
-            android:background="@drawable/bg_radius16_button"
+            android:paddingVertical="4dp"
+            android:text="@string/chatting"
             android:textStyle="bold"
-            android:backgroundTint="@color/grey60"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
