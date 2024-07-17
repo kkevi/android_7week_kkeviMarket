@@ -1,5 +1,6 @@
 package com.example.kkevi_market
 
+import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,13 +22,15 @@ class MainAdaptor(private val mItems: List<MainListViewItemData>) :
     }
 
     override fun onBindViewHolder(holder: MainAdaptor.Holder, position: Int) {
+        val dec = DecimalFormat("#,###원")
+
         holder.itemView.setOnClickListener {
             itemClick?.onClick(it, position)
         }
         holder.image.setImageResource(mItems[position].imageSrc)
         holder.title.text = mItems[position].title
         holder.location.text = mItems[position].user.location
-        holder.price.text = mItems[position].price.toString()
+        holder.price.text = dec.format(mItems[position].price)
         holder.comments.text = mItems[position].comments.toString()
         holder.likes.text = mItems[position].likes.toString()
     }
