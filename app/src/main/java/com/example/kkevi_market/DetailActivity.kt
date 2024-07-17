@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
             data?.imageSrc?.let { detailIvImage.setImageResource(it) }
             detailTvName.text = data?.user?.name
             detailTvLocation.text = data?.user?.location
-            detailTvTemperature.text = data?.user?.temperature.toString()
+            detailTvTemperature.text = "${data?.user?.temperature} °C"
             detailTvTitle.text = data?.title
             detailTvContents.text = data?.contents
             detailTvPrice.text = dec.format(data?.price)
