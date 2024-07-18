@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                                 break
                             }
                         }
+//                         forEachIndexed를 사용해서 반복문을 돌리면, removeAt 되어도 반복문이 계속 실행되기 때문에 앱이 강제 종료 됨 (for문으로 교체)
 //                        fakeDataList.forEachIndexed { idx, itm ->
 //                            if (idx == position) {
 //                                fakeDataList.removeAt(idx)
