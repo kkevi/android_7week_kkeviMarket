@@ -14,7 +14,7 @@ class FakeData{
         }
     }
 
-    fun getFakeDataList(): List<MainListViewItemData> {
+    fun getFakeDataList(): MutableList<MainListViewItemData> {
         return fakeDataList()
     }
 
@@ -24,8 +24,8 @@ class FakeData{
 //        }
 //    }
 
-    fun fakeDataList(): List<MainListViewItemData> {
-        return listOf(
+    fun fakeDataList(): MutableList<MainListViewItemData> {
+        return mutableListOf(
             MainListViewItemData(1, User(1, "대현동", "서울 서대문구 창천동", 38.7), R.drawable.sample1, "산 지 한달된 선풍기 팝니다", "이사 가서 필요가 없어졌어요. 급하게 내놓습니다.", 1000, 13, 25),
             MainListViewItemData(2, User(1, "안마담", "인천 계양구 귤현동", 40.2), R.drawable.sample2, "김치 냉장고", "이사로 인해 내놔요.", 20000, 8, 28),
             MainListViewItemData(3, User(1, "코코유", "수성구 범어동", 56.3), R.drawable.sample3, "샤넬 카드지갑", "고퀄 지갑이구요.\n사용감이 있어서 싸게 내어둡니다.", 10000, 23, 5),

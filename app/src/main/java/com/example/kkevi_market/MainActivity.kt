@@ -47,6 +47,33 @@ class MainActivity : AppCompatActivity() {
                 intentDetail.putExtra("data", fakeDataList[position])
                 startActivity(intentDetail)
             }
+
+            override fun onLongClick(view: View, position: Int) {
+                val builder = AlertDialog.Builder(this@MainActivity)
+                builder.apply {
+                    setTitle("상품 삭제")
+                    setMessage("상품을 정말 삭제 하시겠습니까?")
+                    setPositiveButton("확인") { dialog, which ->
+                        for ((idx, itm) in fakeDataList.withIndex()) {
+                            if (idx == position) {
+                                fakeDataList.removeAt(idx)
+                                this@MainActivity.runOnUiThread { // 제미나이를 통해 배운 사실 표기
+                                    mainAdapter.notifyItemRemoved(idx)
+                                }
+                                break
+                            }
+                        }
+//                        fakeDataList.forEachIndexed { idx, itm ->
+//                            if (idx == position) {
+//                                fakeDataList.removeAt(idx)
+//                                mainAdapter.notifyItemChanged(idx)
+//                            }
+//                        }
+                    }
+                    setNegativeButton("취소", null)
+                    show()
+                }
+            }
         }
 
         binding.ivNotification.setOnClickListener { createNotificationChannel() }
@@ -91,7 +118,7 @@ class MainActivity : AppCompatActivity() {
                 channelID,
                 channelName,
                 NotificationManager.IMPORTANCE_DEFAULT
-            ).apply{
+            ).apply {
                 description = "This is channel description"
                 setShowBadge(true)
                 enableVibration(true)

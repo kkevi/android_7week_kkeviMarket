@@ -11,6 +11,7 @@ class MainAdaptor(private val mItems: List<MainListViewItemData>) :
     RecyclerView.Adapter<MainAdaptor.Holder>() {
     interface ItemClick {
         fun onClick(view: View, position: Int)
+        fun onLongClick(view: View, position: Int)
     }
 
     var itemClick: ItemClick? = null
@@ -23,16 +24,21 @@ class MainAdaptor(private val mItems: List<MainListViewItemData>) :
 
     override fun onBindViewHolder(holder: MainAdaptor.Holder, position: Int) {
         val dec = DecimalFormat("#,###원")
+        val currentItem = mItems[position]
 
         holder.itemView.setOnClickListener {
             itemClick?.onClick(it, position)
         }
-        holder.image.setImageResource(mItems[position].imageSrc)
-        holder.title.text = mItems[position].title
-        holder.location.text = mItems[position].user.location
-        holder.price.text = dec.format(mItems[position].price)
-        holder.comments.text = mItems[position].comments.toString()
-        holder.likes.text = mItems[position].likes.toString()
+        holder.itemView.setOnLongClickListener{
+            itemClick?.onLongClick(it, position)
+            true
+        }
+        holder.image.setImageResource(currentItem.imageSrc)
+        holder.title.text = currentItem.title
+        holder.location.text = currentItem.user.location
+        holder.price.text = dec.format(currentItem.price)
+        holder.comments.text = currentItem.comments.toString()
+        holder.likes.text = currentItem.likes.toString()
     }
 
     // 아래 2개는 꼭 override 해줘야 함
