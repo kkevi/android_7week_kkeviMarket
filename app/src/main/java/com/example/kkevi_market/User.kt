@@ -10,4 +10,6 @@ data class User(
     val name: String,
     val location: String,
     val temperature: Double = 36.5,
+    val temperatureSrc: Int = R.drawable.ic_1,
+    val profileSrc: Int = R.drawable.profile_none,
 ) : Parcelable

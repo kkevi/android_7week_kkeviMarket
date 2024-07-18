@@ -24,6 +24,16 @@ class DetailActivity : AppCompatActivity() {
             detailTvTitle.text = data?.title
             detailTvContents.text = data?.contents
             detailTvPrice.text = dec.format(data?.price)
+            data?.user?.profileSrc?.let { detailIvUserImage.setImageResource(it) }
+            data?.user?.temperatureSrc?.let {
+                if(data.user.temperature >= 36.5 && data.user.temperature < 40.5){
+                    detailIvTemperature.setImageResource(it)
+                } else if (data.user.temperature >= 40.5 && data.user.temperature < 50.5){
+                    detailIvTemperature.setImageResource(R.drawable.ic_2)
+                } else {
+                    detailIvTemperature.setImageResource(R.drawable.ic_3)
+                }
+            }
         }
 
         binding.ivBack.setOnClickListener { finish() }

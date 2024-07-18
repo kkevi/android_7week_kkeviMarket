@@ -39,6 +39,7 @@ class MainAdaptor(private val mItems: List<MainListViewItemData>) :
         holder.price.text = dec.format(currentItem.price)
         holder.comments.text = currentItem.comments.toString()
         holder.likes.text = currentItem.likes.toString()
+
     }
 
     // 아래 2개는 꼭 override 해줘야 함
@@ -59,5 +60,6 @@ class MainAdaptor(private val mItems: List<MainListViewItemData>) :
         val price = binding.tvPrice
         val comments = binding.tvComments
         val likes = binding.tvLike
+        val likesButton = binding.ivLike
     }
 }
